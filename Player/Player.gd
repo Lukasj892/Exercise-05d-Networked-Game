@@ -19,6 +19,9 @@ func _physics_process(_delta):
 		velocity.y = 0
 	if velocity != Vector3.ZERO:
 		velocity = move_and_slide(velocity, Vector3.UP)
+		rpc_unreliable("_set_position", global_transform.origin)
+		rpc_unreliable("_set_rotation", rotation.y)
+		rpc_unreliable("_set_rotation", rotation.y)
 		
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
